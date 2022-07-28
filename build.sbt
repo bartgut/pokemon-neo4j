@@ -12,5 +12,7 @@ libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-effect" % "3.3.12",
   "co.fs2" %% "fs2-core" % "3.2.10",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.5",
-  "ch.qos.logback" % "logback-classic" % "1.2.11"
+  "ch.qos.logback" % "logback-classic" % "1.2.11",
+  "org.neo4j.driver" % "neo4j-java-driver" % "4.4.6",
 )
+
