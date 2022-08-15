@@ -6,6 +6,7 @@ import pokemon.TestNeo4j.DType
 import pokemon.conversion.FromValue
 import pokemon.opaquetype.OpaqueType
 import pokemon.conversion.ConversionError
+import pokemon.neo4j.Neo4jQuery.CypherQueryParam
 import cats.implicits._
 
 case class TestNeo4j(a: AType, b: BType, c: CType, d: TestNeo4j2)

@@ -20,7 +20,7 @@ object ResultConverter {
       javaToScalaMap(record.asMap())
       
   extension[F[_]: Monad](resultF: F[Result])
-    def single[A](using F: Sync[F], AE: ApplicativeError[F, Throwable], FM: FromMap[A]): F[A] =
+    def unique[A](using F: Sync[F], AE: ApplicativeError[F, Throwable], FM: FromMap[A]): F[A] =
       resultF.flatMap { result =>
         if (result.hasNext) AE.fromEither(FM.fromMap(result.single.asScalaMap))
         else AE.raiseError(ConversionError("Expected 1 result, received 0"))

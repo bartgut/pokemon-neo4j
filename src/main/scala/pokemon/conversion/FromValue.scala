@@ -89,7 +89,7 @@ object FromValue {
   private inline def fromMapProduct[A](p: Mirror.ProductOf[A], value: Option[Any]): Either[ConversionError, A] = {
     val fieldNames: List[(String, FromValue[?])] = labelsAndInstances[p.MirroredElemLabels, p.MirroredElemTypes]
     value.flatMap(castToMapSafe)
-      .toRight(ConversionError("Wrong type encountered for expected java.util.map"))
+      .toRight(ConversionError("Wrong type encountered for expected Map"))
       .flatMap { map => 
         val result = fieldNames.traverse {  
           case (fieldName, fromValueMapper) => fromValueMapper.fromValue(map.get(fieldName))
