@@ -15,7 +15,6 @@ import scala.language.postfixOps
 object ApiConnection extends LazyLogging {
 
   private val typesIds: ParSeq[Int] = (1 to 18).par
-  // todo: check if IO.blocking can help here
 
   private def sendTypeRequest(id: Int): Option[TypeData] =
     val backend: SttpBackend[Identity, Any] = HttpClientSyncBackend()

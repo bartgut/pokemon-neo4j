@@ -6,9 +6,7 @@ import io.circe.*
 import io.circe.generic.semiauto.*
 import io.circe.Encoder.encodeString
 import io.circe.Decoder.decodeString
-//import io.circe.generic_extras.auto._
-//import io.circe.generic.extras.Configuration
-// todo: extras?
+
 
 case class TypeData(
   id: TypeId,
@@ -17,7 +15,6 @@ case class TypeData(
 )
 
 object TypeData:
-  // todo: one implicit for all opaque types?
   opaque type TypeName = String
   object TypeName:
     given Encoder[TypeName] = Encoder.encodeString
