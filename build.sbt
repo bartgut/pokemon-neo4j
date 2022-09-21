@@ -5,6 +5,7 @@ version := "0.1"
 scalaVersion := "3.1.3"
 
 libraryDependencies ++= Seq(
+  "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4",
   "com.softwaremill.sttp.client3" %% "core" % "3.7.1",
   "com.softwaremill.sttp.client3" %% "circe" % "3.7.1",
   "io.circe" %% "circe-generic" % "0.14.2",

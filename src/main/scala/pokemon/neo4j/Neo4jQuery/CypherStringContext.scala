@@ -17,7 +17,7 @@ object CypherStringQuery {
         }
       }
       val paramMap = args.iterator.zipWithIndex.map { (param, index) =>
-        (s"$$param$index" -> param.asParam)   
+        (s"param$index" -> param.asParam)
       }.toMap
       CypherQuery(sb.result(), paramMap)
 }

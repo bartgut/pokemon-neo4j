@@ -19,7 +19,7 @@ class Neo4jSimpleClient(config: Neo4jConfig) {
 
   def transaction(): Resource[IO, Transaction] =
     session().flatMap {
-      session => Resource.make(IO { session.beginTransaction() })(transaction => IO { transaction.close() })
+      session => Resource.make(IO { session.beginTransaction() })(transaction => IO(transaction.commit()) *> IO(transaction.close()))
     }
 
   def writeQuery(cypher: String): Resource[IO, Result] =
